@@ -1,9 +1,11 @@
-import React from 'react';
-
-import {Landing } from './pages'
+import { Landing } from './pages';
 
 const App = () => {
-  return <Landing/>;
+  return (
+    <div>
+      <Landing />
+    </div>
+  );
 };
 
 export default App;
