@@ -1,3 +1,5 @@
+@index.css
+
 *,
 ::after,
 ::before {
@@ -319,3 +321,4 @@ ul {
     margin-right: 0.5rem;
   }
 }
+
