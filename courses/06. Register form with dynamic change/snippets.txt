@@ -1,0 +1,112 @@
+@pages/Register.js
+
+import { useState, useEffect } from 'react';
+
+// logo
+import { FormRow, Logo } from '../components';
+// styled-components
+import Wrapper from '../assets/wrappers/RegisterPage';
+
+const initialState = {
+  name: '',
+  email: '',
+  password: '',
+  isMember: true,
+};
+
+const Register = () => {
+  const [values, setValues] = useState(initialState);
+
+  // global state use Navigate()
+
+  // * handleChange
+  const handleChange = (e) => {
+    e.preventDefault();
+    console.log(e.target.value);
+  };
+  // * on submit
+  const onSubmit = (e) => {
+    e.preventDefault();
+    console.log(e.targe);
+  };
+
+  return (
+    <Wrapper className="full-page">
+      <form className="form">
+        <Logo />
+        <h3>Daftar</h3>
+        {/* name input */}
+        <FormRow type="text" name="name" value={values.name} handleChange={handleChange} />
+        {/* email input */}
+        <FormRow type="email" name="email" value={values.email} handleChange={handleChange} />
+        {/* password input */}
+        <FormRow type="password" name="password" value={values.password} handleChange={handleChange} />
+        {/* Submit Button */}
+        <button type="submit" className="btn btn-block">
+          Submit
+        </button>
+      </form>
+    </Wrapper>
+  );
+};
+
+export default Register;
+
+----------------------------------------------------------------------------------------------------
+@components/FormRow.js
+const FormRow = ({ type, name, value, handleChange, labelText }) => {
+  return (
+    <div className="form-row">
+      <label htmlFor={name} className="form-label">
+        {labelText || name}
+      </label>
+      <input
+        type={type}
+        value={value}
+        name={name}
+        onChange={handleChange}
+        className="form-input"
+      />
+    </div>
+  );
+};
+
+export default FormRow;
+
+----------------------------------------------------------------------------------------------------
+@assets/wrappers/RegisterPage.js
+
+import styled from 'styled-components'
+
+const Wrapper = styled.section`
+  display: grid;
+  align-items: center;
+  .logo {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 1.38rem;
+  }
+  .form {
+    max-width: 400px;
+    border-top: 5px solid var(--primary-500);
+  }
+  h3 {
+    text-align: center;
+  }
+  p {
+    margin: 0;
+    margin-top: 1rem;
+    text-align: center;
+  }
+  .btn {
+    margin-top: 1rem;
+  }
+  .member-btn {
+    background: transparent;
+    border: transparent;
+    color: var(--primary-500);
+    cursor: pointer;
+    letter-spacing: var(--letterSpacing);
+  }
+`
+export default Wrapper
