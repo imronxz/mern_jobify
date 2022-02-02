@@ -1,13 +1,16 @@
-import logo from '../assets/images/logo.svg';
 import main from '../assets/images/main-img.svg';
-// styled-components
-import { LandingPage } from '../assets/wrappers';
+//! components/Logo
+import { Logo } from '../components'
+
+//! styled-components
+import Wrapper from '../assets/wrappers/LandingPage';
 
 const Landing = () => {
   return (
-    <LandingPage>
+    <Wrapper>
+      {/* TODO: Logo */}
       <nav>
-        <img src={logo} alt="jobify" className="logo" />
+        <Logo/>
       </nav>
       <div className="container page">
         {/* TODO: info */}
@@ -26,7 +29,7 @@ const Landing = () => {
         </div>
         <img src={main} alt="job hunt" className="img main-img" />
       </div>
-    </LandingPage>
+    </Wrapper>
   );
 };
 
