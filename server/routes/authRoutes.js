@@ -1,8 +1,7 @@
 import express from 'express';
+const router = express.Router();
 
 import { register, login, updateUser } from '../controllers/authControllers.js';
-const router = express.Router()
-
 
 router.get('/register', register);
 router.get('/login', login);

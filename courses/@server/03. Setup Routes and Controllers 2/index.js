@@ -1,5 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import mongoose from 'mongoose';
 import cors from 'cors';
 
 // TODO: dotenv
@@ -34,7 +35,6 @@ app.get('/', (req, res) => {
   res.send('Welcome to MERN Blog Project Menggunakan ExpressJS dan MongoDB');
 });
 
-//! app.use(authRouter, jobsRouter);
 app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/auth', jobsRouter)
 

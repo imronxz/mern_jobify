@@ -1,0 +1,48 @@
+@controllers/jobsController.js
+
+const createJob = async (req, res) => { 
+  res.send('create Job');
+}
+const deleteJob = async (req, res) => { 
+  res.send('deleteJob ');
+}
+const getAllJobs = async (req, res) => { 
+  res.send('get All Jobs ');
+}
+const updateJob = async (req, res) => { 
+  res.send('update Job ');
+}
+const showStats = async (req, res) => { 
+  res.send('show Stats ');
+}
+
+
+export {createJob, deleteJob, getAllJobs, updateJob, showStats}
+
+--------------------------------------------------------------------------------
+@routes/jobsRoutes.js
+
+import express from 'express';
+const router = express.Router();
+
+import { createJob, deleteJob, getAllJobs, updateJob, showStats } from '../controllers/jobsControllers.js';
+
+
+router.post('/', createJob);
+router.get('/', getAllJobs);
+router.get('/stats', showStats);
+router.delete('/:id', deleteJob);
+router.patch('/:id', updateJob);
+
+export default router;
+
+--------------------------------------------------------------------------------
+@index.js
+
+// TODO: Routers
+import authRouter from './routes/authRoutes.js';
+import jobsRouter from './routes/jobsRoutes.js';
+
+//! app.use(authRouter, jobsRouter);
+app.use('/api/v1/auth', authRouter)
+app.use('/api/v1/auth', jobsRouter)
