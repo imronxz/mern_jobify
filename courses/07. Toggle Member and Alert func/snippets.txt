@@ -1,3 +1,17 @@
+@components/Alert.js
+
+const Alert = () => {
+  return <div className="alert alert-danger">alert goes here</div>;
+};
+
+export default Alert
+
+@components/index.js
+
+export {default as Alert} from "./Alert"
+------------------------------------------------------------------------------------------------
+@pages/Register.js
+
 import { useState, useEffect } from 'react';
 
 // logo
