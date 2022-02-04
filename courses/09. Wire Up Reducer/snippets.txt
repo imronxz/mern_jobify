@@ -1,0 +1,12 @@
+reducer.js
+
+const reducer = (state, action) => {
+  throw new Error(`no such action :${action.type}`)
+}
+export default reducer
+----------------------------------------------------------------------------------------------
+appContext.js
+
+import reducer from './reducer'
+
+const [state, dispatch] = useReducer(reducer, initialState)
