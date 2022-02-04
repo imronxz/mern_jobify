@@ -1,0 +1,71 @@
+@context/actions.js
+export const DISPLAY_ALERT = 'SHOW_ALERT'
+
+----------------------------------------------------------------------------------------------------
+@context/reducer.js
+
+import { DISPLAY_ALERT } from './actions';
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case DISPLAY_ALERT:
+      return {
+        ...state,
+        showAlert: true,
+        alertType: 'danger',
+        alertText: 'Harap isi semua form!',
+      };
+    default:
+      return state;
+  }
+};
+export default reducer;
+
+----------------------------------------------------------------------------------------------------
+@context/appContext.js
+
+//! actions
+import { DISPLAY_ALERT } from './actions';
+ //* display Alert on Form fields
+  const displayAlert = () => {
+    dispatch({ type: DISPLAY_ALERT})
+  }
+return (
+    <AppContext.Provider value={{ ...state, displayAlert }}>
+      {children}
+    </AppContext.Provider>
+  );
+
+----------------------------------------------------------------------------------------------------
+@components/Alert.js
+
+import { useAppContext } from '../context/appContext';
+
+const Alert = () => {
+  const { alertType, alertText } = useAppContext();
+  return (
+    <div className={`alert alert-${alertType}`}>
+      {alertText}
+    </div>);
+};
+
+export default Alert;
+
+----------------------------------------------------------------------------------------------------
+@pages/Register.js
+
+  const { isLoading, showAlert, displayAlert } = useAppContext()
+  // * handleChange
+  const handleChange = (e) => {
+    setValues({ ...values, [e.target.name]: e.target.value })
+  };
+  // * on submit
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const { name, email, password, isMember } = values;
+    if (!email || !password || (!isMember && !name)){
+      displayAlert()
+      return
+    }
+    console.log(values);
+  };

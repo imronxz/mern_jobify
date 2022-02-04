@@ -19,7 +19,6 @@ const AppContext = React.createContext();
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  //* display Alert on Form fields
   const displayAlert = () => {
     dispatch({ type: DISPLAY_ALERT})
   }
@@ -27,8 +26,7 @@ const AppProvider = ({ children }) => {
   return (
     <AppContext.Provider value={{ ...state, displayAlert }}>
       {children}
-    </AppContext.Provider>
-  );
+    </AppContext.Provider>);
 };
 
 // Costum Hook context
