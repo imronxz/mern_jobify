@@ -1,0 +1,15 @@
+yarn add express body-parser mongoose cors dotenv bcrypt
+yarn add nodemon --dev
+
+  "type": "module",
+    "start": "nodemon server"
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.2",
+    "mongoose": "^6.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
