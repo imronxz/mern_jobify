@@ -1,0 +1,38 @@
+@controllers/authControllers.js
+
+const register = (req, res) => {
+  res.send('Register fn')
+};
+const login = (req, res) => {
+  res.send('Login fn')
+};
+const updateUser = (req, res) => {
+  res.send('update user fn')
+};
+
+export { register, login, updateUser };
+
+--------------------------------------------------------------------------------
+@routes/authRouters.js
+
+import express from 'express';
+
+import { register, login, updateUser } from '../controllers/authControllers.js';
+const router = express.Router()
+
+
+router.get('/register', register);
+router.get('/login', login);
+
+router.patch('/updateUser', updateUser);
+
+export default router;
+--------------------------------------------------------------------------------
+@index.js
+
+// TODO: Routers
+import authRouter from './routes/authRouters.js';
+
+app.use(express.json())
+
+app.use('/api/v1/auth', authRouter)
