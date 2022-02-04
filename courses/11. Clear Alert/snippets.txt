@@ -1,0 +1,26 @@
+@content/actions.js
+export const CLEAR_ALERT = 'CLEAR_ALERT'
+
+@content/reducer.js
+case CLEAR_ALERT:
+      return { ...state, showAlert: false, alertText: '', alertType: '' }
+
+@content/appContext.js
+
+import { DISPLAY_ALERT, CLEAR_ALERT } from './actions';
+
+const AppProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  //* display Alert on Form fields
+  const displayAlert = () => {
+    dispatch({ type: DISPLAY_ALERT });
+    clearAlert();
+  };
+
+  //* clear Alert 
+  const clearAlert = () => {
+    setTimeout(() => {
+      dispatch({ type: CLEAR_ALERT });
+    }, 2000);
+  }
+}
