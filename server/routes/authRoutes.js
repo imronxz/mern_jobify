@@ -3,8 +3,8 @@ const router = express.Router();
 
 import { register, login, updateUser } from '../controllers/authControllers.js';
 
-router.get('/register', register);
-router.get('/login', login);
+router.post('/register', register);
+router.post('/login', login);
 
 router.patch('/updateUser', updateUser);
 
