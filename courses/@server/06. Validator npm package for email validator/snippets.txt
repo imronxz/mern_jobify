@@ -1,0 +1,19 @@
+npm install validator
+
+@models/User.js
+
+import validator from 'validator'
+
+const UserSchema = new mongoose.Schema({
+    email: {
+      type: String,
+      required: [true, 'Harap masukkan email dengan benar'],
+      validate: {
+        validator: validator.isEmail,
+        message: 'Harap masukkan email valid email',
+      },
+      unique: true,
+    },
+  });
+
+export default mongoose.model('User', UserSchema);
