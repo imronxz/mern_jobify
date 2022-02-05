@@ -8,11 +8,12 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/dashboard">
+        <Route path="/" element={<SharedLayout />}>
+          {/* default pages with index */}
+          <Route index element={<Stats />} />
           <Route path="tambah-pekerjaan" element={<AddJob />} />
           <Route path="semua-pekerjaan" element={<AllJobs />} />
-          <Route path="profile-user" element={<Profile />} />
-          <Route path="status-utama" element={<Stats />} />
+          <Route path="profile-pekerja" element={<Profile />} />
         </Route>
         <Route path="/auth" element={<Auth />} />
         <Route path="/utama" element={<Landing />} />
