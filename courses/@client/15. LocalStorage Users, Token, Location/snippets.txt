@@ -1,0 +1,33 @@
+@context/appContext.js
+
+const user = localStorage.getItem('user');
+const token = localStorage.getItem('token');
+const userLocation = localStorage.getItem('location');
+// TODO: global state here
+const initialState = {
+  isLoading: false,
+  showAlert: false,
+  alertText: '',
+  alertType: '',
+  user: user ? JSON.parse(user) : null,
+  token: token,
+  userLocation: userLocation || '',
+  jobLocation: userLocation || '',
+}
+
+  const addUserToLocalStorage = ({ user, token, location }) => {
+    localStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem('token', JSON.stringify(token));
+    localStorage.setItem('location', JSON.stringify(location));
+  }
+
+  const removeUserFromLocalStorage = () => {
+    localStorage.removeItem('user')
+    localStorage.removeItem('token')
+    localStorage.removeItem('location')
+  }
+  //* register user
+  const registerUser = async (currentUser) => {
+      //! addUserToLocalStorage
+      addUserToLocalStorage({ user, token, location });
+  }
