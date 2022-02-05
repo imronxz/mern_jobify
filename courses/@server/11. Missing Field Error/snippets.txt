@@ -1,3 +1,26 @@
+@models/User.js
+import validator from 'validator';
+
+const UserSchema = new mongoose.Schema({
+name: {
+    type: String,
+    required: [true, 'Harap masukkan nama!'],
+    minLength: 3,
+    maxLength: 20,
+    trim: true,
+  },
+  email: {
+    type: String,
+    required: [true, 'Harap masukkan email!'],
+    validate: {
+      validator: validator.isEmail,
+      message: 'Harap masukkan email yang valid!',
+    },
+    unique: true,
+  }
+------------------------------------------------------------------------------------------------
+@middleware/404-handler.js
+
 import { StatusCodes } from 'http-status-codes';
 
 const errorhandlerMiddleWare = (err, req, res, next) => {
