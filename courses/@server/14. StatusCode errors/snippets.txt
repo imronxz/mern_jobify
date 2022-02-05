@@ -1,0 +1,71 @@
+@errors/index.js
+export {default as CostumAPIError} from './costum-api.js';
+export {default as BadRequestError} from './bad-request.js';
+export {default as NotFoundError} from './not-found.js';
+export {default as UnauthorizedError} from './unauthenticated.js';
+
+@errors/costum-api.js
+class CostumAPIError extends Error {
+  constructor(message) {
+    super(message);
+  }
+}
+
+export default CostumAPIError;
+
+@errors/bad-request.js
+import { StatusCodes } from 'http-status-codes';
+import { CostumAPIError } from './index.js';
+
+class BadRequestError extends CostumAPIError {
+  constructor(message) {
+    super(message);
+    this.statusCode = StatusCodes.BAD_REQUEST;
+  }
+}
+export default BadRequestError;
+
+@errors/not-found.js
+import { StatusCodes } from 'http-status-codes';
+import { CostumAPIError } from './index.js';
+
+class NotFoundError extends CostumAPIError {
+  constructor(message) {
+    super(message);
+    this.statusCode = StatusCodes.NOT_FOUND;
+  }
+}
+export default NotFoundError;
+
+@errors/unauthenticated.js
+import { StatusCodes } from 'http-status-codes';
+import { CostumAPIError } from './index.js';
+
+class UnAuthenticatedError extends CostumAPIError {
+  constructor(message) {
+    super(message);
+    this.statusCode = StatusCodes.UNAUTHORIZED;
+  }
+}
+
+export default UnAuthenticatedError;
+
+--------------------------------------------------------------------------------
+@controllers/authControllers.js
+
+import { BadRequestError } from '../errors/index.js';
+
+const register = async (req, res) => {
+  const { name, email, password } = req.body;
+
+  if (!name || !email || !password) {
+    throw new BadRequestError('Harap isi semua form yang tersedia');
+  }
+--------------------------------------------------------------------------------
+@middleware/404-handler.js
+
+const errorhandlerMiddleWare = (err, req, res, next) => {
+  console.log(err.message);
+
+  const defaultError = {
+    statusCode: err.statusCode || StatusCodes.INTERNAL_SERVER_ERROR, // TODO: 
