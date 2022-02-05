@@ -1,0 +1,10 @@
+yarn add bcryptjs
+
+@models/User.js
+
+import bcrypt from 'bcryptjs';
+
+//* bcryptjs 
+UserSchema.pre('save', async function () {
+  this.password = await bcrypt.hash(this.password, 12);
+})

@@ -1,7 +1,7 @@
 import { StatusCodes } from 'http-status-codes';
 
 const errorhandlerMiddleWare = (err, req, res, next) => {
-  console.log(err.message);
+  console.log(err);
 
   const defaultError = {
     statusCode: err.statusCode || StatusCodes.INTERNAL_SERVER_ERROR,
@@ -18,11 +18,10 @@ const errorhandlerMiddleWare = (err, req, res, next) => {
   //* unique email validator
   if (err.code && err.code === 11000) {
     defaultError.statusCode = StatusCodes.BAD_REQUEST;
-    defaultError.msg = `${Object.keys(err.keyValue)} sudah terdaftar`;
+    defaultError.msg = `${Object.keys(err.keyValue)} tidak sesuai format`;
   }
 
   res.status(defaultError.statusCode).json({ msg: defaultError.msg });
-  // res.status(defaultError.statusCode).json({ msg: err });
 };
 
 export default errorhandlerMiddleWare;
