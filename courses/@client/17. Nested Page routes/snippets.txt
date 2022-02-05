@@ -1,7 +1,9 @@
+@App.js
+
 // react-router-dom@6
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Landing, Auth, Error } from './pages';
-//* dashboard pages
+//TODO:* dashboard pages
 import { AddJob, AllJobs, Profile, Stats, SharedLayout } from './pages/dashboard';
 
 const App = () => {
