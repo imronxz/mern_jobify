@@ -8,12 +8,13 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        {/* ProtectedRoute */}
-        <Route path="/"
+        <Route
+          path="/"
           element={
             <ProtectedRoute>
               <SharedLayout />
-          </ProtectedRoute>}
+            </ProtectedRoute>
+          }
         >
           {/* default pages with index */}
           <Route index element={<Stats />} />

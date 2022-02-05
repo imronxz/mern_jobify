@@ -14,7 +14,7 @@ const Landing = () => {
     <Wrapper>
       {/* TODO: Logo */}
       <nav>
-        <Logo />
+        <Link to="/auth">{<Logo />}/</Link>
       </nav>
       <div className="container page">
         {/* TODO: info */}
@@ -29,7 +29,9 @@ const Landing = () => {
             dreamcatcher. Af chartreuse PBR&B mlkshk edison bulb tote bag meggings jean
             shorts vaporware next level heirloom air plant brooklyn.
           </p>
-          <button className="btn btn-hero">Login/Register</button>
+          <Link to="/auth" className="btn btn-hero">
+            Login/Register
+          </Link>
         </div>
         <img src={mainImages} alt="job hunt" className="img main-img" />
       </div>

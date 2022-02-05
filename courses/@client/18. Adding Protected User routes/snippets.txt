@@ -1,0 +1,30 @@
+@App.js
+
+import { Landing, Auth, Error, ProtectedRoute } from './pages';
+const App = () => {
+  return (
+    <BrowserRouter>
+      <Routes>
+        {/* ProtectedRoute */}
+        <Route path="/"
+          element={
+            <ProtectedRoute>
+              <SharedLayout />
+          </ProtectedRoute>}
+        >
+------------------------------------------------------------------------------------------------
+@pages/ProtectedRoute.js
+
+import { Navigate } from 'react-router-dom';
+import {useAppContext} from '../context/appContext'
+
+const ProtectedRoute = ({ children }) => {
+  const {user} = useAppContext()
+  
+  if (!user) {
+    return <Navigate to='/utama' />
+  } 
+  return children
+};
+
+export default ProtectedRoute;
