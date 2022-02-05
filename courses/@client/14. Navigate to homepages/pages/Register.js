@@ -19,7 +19,7 @@ const initialState = {
 const Register = () => {
   const { user, isLoading, showAlert, displayAlert , registerUser} = useAppContext()
   const [values, setValues] = useState(initialState);
-  //! navigate Navigate()
+  //! nvaigate Navigate()
   const navigate = useNavigate();
 
   const toggleMember = () => {
@@ -50,12 +50,11 @@ const Register = () => {
     console.log(values);
   };
 
-  //! redirect to home pages if there is an User
   useEffect(() => {
     if (user) {
       setTimeout(() => {
         navigate('/')
-      }, 3000);
+      }, 2000);
     }
   },[user, navigate])
 

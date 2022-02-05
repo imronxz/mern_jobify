@@ -1,0 +1,16 @@
+@pages/Register.js
+
+//! useNavigate react-router-dom
+import { useNavigate } from 'react-router-dom';
+
+  const { user, isLoading, showAlert, displayAlert , registerUser} = useAppContext()
+  //! navigate Navigate()
+  const navigate = useNavigate();
+  //! redirect to home pages if there is an User
+  useEffect(() => {
+    if (user) {
+      setTimeout(() => {
+        navigate('/')
+      }, 3000);
+    }
+  },[user, navigate])

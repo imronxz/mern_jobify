@@ -42,7 +42,7 @@ const AppProvider = ({ children }) => {
   const clearAlert = () => {
     setTimeout(() => {
       dispatch({ type: CLEAR_ALERT });
-    }, 2000);
+    }, 3000);
   };
 
   //* register user
@@ -51,7 +51,7 @@ const AppProvider = ({ children }) => {
     try {
       const response = await api.register(currentUser);
       const { user, token, location } = response.data;
-      console.log(response);
+
       dispatch({ type: REG_SUCCESS, payload: { user, token, location } });
     } catch (error) {
       dispatch({ type: REG_FAIL, payload: { msg: error.response.data.msg } });
