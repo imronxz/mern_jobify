@@ -13,7 +13,7 @@ const App = () => {
           element={
             <ProtectedRoute>
               <SharedLayout />
-          </ProtectedRoute>}
+            </ProtectedRoute>}
         >
           {/* default pages with index */}
           <Route index element={<Stats />} />

@@ -1,6 +1,9 @@
-import { Outlet, Link } from 'react-router-dom';
+@wrappers/component-styled
 
-import Wrapper from '../../assets/wrappers/SharedLayout';
+@component/Navbar/BigSideBar/SmallSideBar/
+
+@pages/dashboard/SharedLayout.js
+
 import { Navbar, BigSideBar, SmallSideBar } from '../../components';
 
 const SharedLayout = () => {
@@ -21,7 +24,5 @@ const SharedLayout = () => {
         </div>
       </main>
     </Wrapper>
-  );
-};
-
-export default SharedLayout;
+  )
+}
