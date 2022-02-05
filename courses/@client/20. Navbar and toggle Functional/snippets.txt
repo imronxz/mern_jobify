@@ -1,3 +1,29 @@
+@actions
+export const TOGGLE_SIDEBAR = 'TOGGLE_SIDEBAR'
+
+@appContext
+//TODO: actions
+  TOGGLE_SIDEBAR
+
+TODO: global initialState
+  showSidebar: false,
+
+  //* ToggleSidebar
+  const toggleSidebar = () => {
+    dispatch({ type: TOGGLE_SIDEBAR });
+  };
+
+    <AppContext.Provider value={{ ...state, displayAlert, authUser, toggleSidebar }}>
+
+@reducer
+  TOGGLE_SIDEBAR,
+  
+  case TOGGLE_SIDEBAR:
+      return {...state, showSidebar: !state.showSidebar};
+
+--------------------------------------------------------------------------------
+@compoenents/Navbar.js
+
 import { useState } from 'react';
 import Wrapper from '../assets/wrappers/Navbar';
 import { FaAlignLeft, FaUserCircle, FaCaretDown } from 'react-icons/fa';
