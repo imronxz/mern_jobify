@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import 'express-async-errors'
+import morgan from 'morgan';
 
 // TODO: dotenv
 import dotenv from 'dotenv';
@@ -18,6 +19,11 @@ import errorHandlerMiddleWare from './middleware/404-handler.js';
 
 const app = express();
 dotenv.config();
+
+//TODO: morgan
+if (process.env.NODE_ENV !== 'production') {
+  app.use(morgan('dev'))
+}
 
 //TODO:  using #appAsExpress #coreExpress
 app.use(bodyParser.json({ limit: '30mb', extended: true }));

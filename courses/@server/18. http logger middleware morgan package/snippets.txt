@@ -1,0 +1,8 @@
+yarn add morgan
+
+@index.js
+import morgan from 'morgan'
+
+if (process.env.NODE_ENV !== 'production') {
+  app.use(morgan('dev'))
+}
