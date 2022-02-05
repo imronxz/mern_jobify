@@ -1,0 +1,74 @@
+@api/index.js
+
+import axios from 'axios';
+
+const API = axios.create({ baseURL: 'http://localhost:5000' });
+
+export const register = (currentUser) => API.post('/api/v1/auth/register', currentUser)
+----------------------------------------------------------------------------------------------------------------------
+@context/appContext.js
+
+//! all fn as api from /api
+import * as api from '../api';
+//! actions
+import { DISPLAY_ALERT, CLEAR_ALERT, REGISTER_USER, REG_SUCCESS, REG_FAIL } from './actions';
+
+const initialState = {
+  user: null,
+  token: null,
+  userLocation: '',
+  jobLocation: '',
+}
+
+  //* register user
+  const registerUser = async (currentUser) => {
+    dispatch({ type: REGISTER_USER });
+    try {
+      const response = await api.register(currentUser);
+      const { user, token, location } = response.data;
+      console.log(response);
+      dispatch({ type: REG_SUCCESS, payload: { user, token, location } });
+    } catch (error) {
+      dispatch({ type: REG_FAIL, payload: { msg: error.response.data.msg } });
+    }
+    clearAlert();
+    
+    <AppContext.Provider value={{ ...state, displayAlert, registerUser }}>
+ 
+----------------------------------------------------------------------------------------------------------------------
+@context/reducer.js
+import { REGISTER_USER, REG_SUCCESS, REG_FAIL } from './actions';
+
+ case REGISTER_USER:
+      return { ...state, isLoading: true }
+    case REG_SUCCESS:
+      return { ...state, user: action.payload.user, token: action.payload.token, userLocation: action.payload.location, jobLocation: action.payload.location,  isLoading: false,  showAlert: true, alertType: 'success', alertText: 'Berhasil daftar akun! Sedang dialihkan ke halaman utama...', }
+    case REG_FAIL:
+      return { ...state, isLoading: false, showAlert: true, showAlert: true, alertType: 'danger', alertText: action.payload.msg, };
+----------------------------------------------------------------------------------------------------------------------
+@context/actions.js
+
+export const REGISTER_USER = 'REGISTER_USER'
+export const REG_SUCCESS = 'REGISTER_SUCCESS'
+export const REG_FAIL = 'REGISTER_FAIL'
+----------------------------------------------------------------------------------------------------------------------
+@pages/Register.js
+
+  const { isLoading, showAlert, displayAlert , registerUser} = useAppContext()
+  // * on submit
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const { name, email, password, isMember } = values;
+    if (!email || !password || (!isMember && !name)){
+      displayAlert()
+      return
+    }
+    const currentUser = { name, email, password }
+
+    //! check if user is member
+    if (isMember) {
+      console.log('Berhasil daftar akun');
+    } else { 
+      registerUser(currentUser)
+    }
+    console.log(values);
