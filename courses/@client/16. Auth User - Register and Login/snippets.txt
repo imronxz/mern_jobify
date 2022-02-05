@@ -1,0 +1,71 @@
+@context/actions.js
+
+export const AUTH_USER = 'AUTH_USER'
+export const AUTH_SUCCESS = 'AUTH_SUCCESS'
+export const AUTH_FAILED = 'AUTH_FAILED'
+
+@context/appContext.js
+import axios from 'axios';
+
+  const API = axios.create({ baseURL: 'http://localhost:5000' });
+  //* Auth users -> Register and Login user
+  const authUser = async ({currentUser,endPoint, alertText}) => {
+    dispatch({ type: AUTH_USER });
+    try {
+      const { data } = await API.post(`/api/v1/auth/${endPoint}`, currentUser);
+      const { user, token, location } = data;
+
+      dispatch({ type: AUTH_SUCCESS, payload: { user, token, location, alertText } });
+      //! addUserToLocalStorage
+      addUserToLocalStorage({ user, token, location });
+    } catch (error) {
+      dispatch({ type: AUTH_FAILED, payload: { msg: error.response.data.msg } });
+    }
+    clearAlert();
+  };
+
+@context/reducer.js
+import{
+  AUTH_USER, AUTH_SUCCESS, AUTH_FAILED,
+} from './actions';
+
+case AUTH_USER:
+      return {
+        ...state,
+        isLoading: true
+      }
+    case AUTH_SUCCESS:
+      return {
+        ...state,
+        user: action.payload.user, token: action.payload.token, userLocation: action.payload.location, jobLocation: action.payload.location, isLoading: false, showAlert: true, alertType: 'success', alertText: action.payload.alertText,
+      }
+    case AUTH_FAILED:
+      return {
+        ...state,
+        isLoading: false, showAlert: true, showAlert: true, alertType: 'danger', alertText: action.payload.msg,
+      };
+-----------------------------------------------------------------------------------------------------------------------
+@pages/Auth.js
+
+const Auth = () => {
+  const {
+  authUser
+  } = useAppContext()
+  
+    /* 
+    if user is member then -> go to Login,
+    if user is not member then -> go to Register
+    */
+    if (isMember) {
+      authUser({
+        currentUser,
+        endPoint: 'login',
+        alertText: 'Berhasil Login! Redirecting...',
+      });
+    } else { 
+      authUser({
+        currentUser,
+        endPoint: 'register',
+        alertText: 'Berhasil Daftar! Redirecting...',
+      });
+    }

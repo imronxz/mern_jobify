@@ -16,15 +16,24 @@ const initialState = {
   isMember: true,
 };
 
-const Register = () => {
-  const { user, isLoading, showAlert, displayAlert , registerUser} = useAppContext()
+const Auth = () => {
+  const {
+    user,
+    isLoading,
+    showAlert,
+    displayAlert,
+    authUser
+  } = useAppContext()
+
+  //! global state
   const [values, setValues] = useState(initialState);
+
   //! navigate Navigate()
   const navigate = useNavigate();
 
   const toggleMember = () => {
     setValues({ ...values, isMember: !values.isMember });
-  }
+  };
 
   // * handleChange
   const handleChange = (e) => {
@@ -35,19 +44,29 @@ const Register = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     const { name, email, password, isMember } = values;
-    if (!email || !password || (!isMember && !name)){
-      displayAlert()
-      return
+    if (!email || !password || (!isMember && !name)) {
+      displayAlert();
+      return;
     }
     const currentUser = { name, email, password }
 
-    //! check if user is member
+    /* 
+    if user is member then -> go to Login,
+    if user is not member then -> go to Register
+    */
     if (isMember) {
-      console.log('Berhasil daftar akun');
+      authUser({
+        currentUser,
+        endPoint: 'login',
+        alertText: 'Berhasil Login! Redirecting...',
+      });
     } else { 
-      registerUser(currentUser)
+      authUser({
+        currentUser,
+        endPoint: 'register',
+        alertText: 'Berhasil Daftar! Redirecting...',
+      });
     }
-    console.log(values);
   };
 
   //! redirect to home pages if there is an User
@@ -89,4 +108,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Auth;
