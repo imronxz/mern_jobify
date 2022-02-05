@@ -28,7 +28,10 @@ app.use(express.json());
 
 
 app.get('/', (req, res) => {
-  res.send('Welcome to MERN Blog Project Menggunakan ExpressJS dan MongoDB');
+  res.json({msg: 'Welcome to MERN Blog Project Menggunakan ExpressJS dan MongoDB'});
+});
+app.get('/api/v1', (req, res) => {
+  res.json({ msg: 'API Connect'});
 });
 
 //! app.use(authRouter, jobsRouter);
