@@ -1,0 +1,7 @@
+@middleware/404-handler.js
+
+  //* unique email validator
+  if (err.code && err.code === 11000) {
+    defaultError.statusCode = StatusCodes.BAD_REQUEST;
+    defaultError.msg = `${Object.keys(err.keyValue)} sudah terdaftar`;
+  }
