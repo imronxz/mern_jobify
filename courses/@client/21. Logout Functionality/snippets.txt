@@ -1,0 +1,48 @@
+@actions.js
+
+export const LOGOUT_USER = 'LOGOUT_USER'
+
+@appContext.js
+
+const logoutUser = () => {
+  dispatch({ type: LOGOUT_USER })
+  removeUserFromLocalStorage()
+}
+
+value={{logoutUser}}
+
+@reducer.js
+
+import { initialState } from './appContext'
+
+if (action.type === LOGOUT_USER) {
+  return {
+    ...initialState,
+    user: null,
+    token: null,
+    userLocation: '',
+    jobLocation: '',
+  }
+}
+
+--------------------------------------------------------------------------------
+@Navbar.js
+
+const { user, logoutUser, toggleSidebar } = useAppContext()
+
+return (
+  <div className='btn-container'>
+    <button className='btn' onClick={() => setShowLogout(!showLogout)}>
+      <FaUserCircle />
+      {user.name}
+      {user && user.name}
+      {user?.name} // optional chaining
+      <FaCaretDown />
+    </button>
+    <div className={showLogout ? 'dropdown show-dropdown' : 'dropdown'}>
+      <button onClick={logoutUser} className='dropdown-btn'>
+        logout
+      </button>
+    </div>
+  </div>
+)
