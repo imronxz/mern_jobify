@@ -1,0 +1,4 @@
+yarn add express-async-errors
+
+@index.js
+import 'express-async-errors'
