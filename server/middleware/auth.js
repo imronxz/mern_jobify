@@ -11,20 +11,17 @@ const auth = async (req, res, next) => {
 
   //! membuat 1 spasi setelah Bearer
   const token = authHeader.split(' ')[1];
-  
-
   try {
     //! verify token(token, JWT_SECRET)
-    const decodedData = jwt.verify(token, process.env.JWT_SECRET);
-
-    //! attach the user request object
-    req.user = { userId: decodedData.id };
+    const payload = jwt.verify(token, process.env.JWT_SECRET);
+    
+    //! payload.id adalah id dari user yang login
+    req.user = { id: payload.id };
 
     next();
   } catch (error) {
     throw new UnauthenticatedError('Authentication invalid');
   }
-  next();
 };
 
 export default auth;

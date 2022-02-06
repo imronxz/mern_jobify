@@ -34,13 +34,13 @@ app.use(cors());
 app.use(express.json());
 
 
-app.get('/', (req, res) => {
+/* app.get('/', (req, res) => {
   res.json({msg: 'Welcome to MERN Blog Project Menggunakan ExpressJS dan MongoDB'});
 });
 app.get('/api/v1', (req, res) => {
   res.json({ msg: 'API Connect'});
 });
-
+ */
 //! app.use(authRouter, jobsRouter);
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/jobs', authenticated, jobsRouter);
