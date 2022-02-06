@@ -1,3 +1,4 @@
+@BigSideBar.js
 import Wrapper from '../assets/wrappers/BigSideBar';
 import { useAppContext } from '../context/appContext';
 import Logo from './Logo';
