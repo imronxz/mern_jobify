@@ -10,7 +10,7 @@ const BigSideBar = () => {
       <div className={showSidebar ? 'sidebar-container' : 'sidebar-container show-sidebar'}>
         <div className="content">
           <header>
-            <Logo/>
+            <Logo />
           </header>
           <NavLinks />
         </div>
