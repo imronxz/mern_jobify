@@ -1,3 +1,23 @@
+#### Global State Add Job
+
+```js
+const initialState = {
+  // TODO: job state
+  isEditing: false,
+  showAlerteditJobId: '',
+  position: '',
+  company: '',
+  // * job location
+  jobTypeOptions: ['full-time', 'part-time', 'remote', 'internship'],
+  jobType: 'full-time',
+  statusOptions: ['pending', 'interview', 'declined'],
+  status: 'pending',
+}
+```
+
+#### pages/dashboard/AddJob.js
+
+```js
 import { FormRow, Alert } from '../../components';
 import { useAppContext } from '../../context/appContext';
 import Wrapper from '../../assets/wrappers/AddJob';
@@ -74,3 +94,5 @@ const AddJob = () => {
 };
 
 export default AddJob;
+
+```
