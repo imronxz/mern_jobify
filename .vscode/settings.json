@@ -1,0 +1,319 @@
+{
+  "window.menuBarVisibility": "toggle",
+  "editor.fontFamily": "Operator Mono SSm Lig,  Hack Nerd Font, CaskaydiaCove NF , SauceCodePro NF,   JetBrains Mono,  Anonymous Pro,  Fira Code",
+  "editor.fontWeight": "200",
+  "editor.lineHeight": 24,
+  "editor.fontLigatures": true,
+  "explorer.confirmDelete": false,
+  "editor.autoIndent": "full",
+  "editor.formatOnPaste": true,
+  "editor.letterSpacing": 1,
+  "editor.tabSize": 2,
+  "editor.cursorSmoothCaretAnimation": false,
+  "workbench.sideBar.location": "left",
+  "editor.wordWrap": "off",
+  "material-icon-theme.showWelcomeMessage": false,
+  "editor.cursorBlinking": "smooth",
+  "zenMode.centerLayout": false,
+  "workbench.startupEditor": "newUntitledFile",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "editor.formatOnType": true,
+  "typescript.preferences.quoteStyle": "single",
+  "explorer.confirmDragAndDrop": false,
+  "workbench.iconTheme": "vscode-icons",
+  "css.lint.hexColorLength": "ignore",
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": [
+          "comment",
+          "comment.block"
+        ],
+        "settings": {
+          "fontStyle": "italic",
+          "foreground": "#ff1491"
+        }
+      },
+      {
+        "scope": [
+          "keyword.operator.logical",
+          "keyword.operator.arithmetic",
+          "keyword.operator.assignment",
+          "keyword.operator.bitwise"
+        ],
+        "settings": {
+          "fontStyle": ""
+        }
+      }
+    ]
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "html.format.wrapAttributes": "aligned-multiple",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.arrowParens": "always",
+  "prettier.quoteProps": "consistent",
+  "prettier.trailingComma": "all",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "eslint.validate": [
+    "typescript",
+    "html"
+  ],
+  "eslint.options": {
+    "extensions": [
+      ".js",
+      ".ts",
+      "html"
+    ]
+  },
+  "eslint.alwaysShowStatus": true,
+  "editor.linkedEditing": true,
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": false
+  },
+  "prettier.printWidth": 90,
+  "terminal.integrated.fontFamily": "monospace",
+  "update.mode": "start",
+  "terminal.external.windowsExec": "",
+  "editor.renderWhitespace": "none",
+  "githubPullRequests.fileListLayout": "flat",
+  "angular.enable-experimental-ivy-prompt": false,
+  "css.validate": false,
+  "scss.validate": false,
+  "stylelint.enable": true,
+  "prettier.singleQuote": true,
+  "javascript.preferences.quoteStyle": "single",
+  "typescript.preferences.importModuleSpecifier": "project-relative",
+  "typescript.format.semicolons": "insert",
+  "javascript.preferences.importModuleSpecifier": "non-relative",
+  "editor.fontSize": 19,
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.inlineSuggest.enabled": true,
+  "settings.cycle": [
+    {
+      "id": "lineNumbers",
+      "values": [
+        {
+          "editor.lineNumbers": "off",
+          "editor.folding": true,
+          "editor.glyphMargin": false
+        },
+        {
+          "editor.lineNumbers": "on",
+          "editor.folding": true,
+          "editor.glyphMargin": false
+        }
+      ]
+    }
+  ],
+  "editor.lineNumbers": "off",
+  "editor.folding": true,
+  "editor.glyphMargin": false,
+  "editor.minimap.enabled": false,
+  "git.autofetch": true,
+  "tabnine.experimentalAutoImports": true,
+  "bracket-pair-colorizer-2.depreciation-notice": false,
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
+  "cSpell.userWords": [
+    "axios",
+    "berdasarkan",
+    "dari",
+    "Detailpost",
+    "detik",
+    "firebaseapp",
+    "firestore",
+    "fungsi",
+    "Imron",
+    "imronxz",
+    "inputkan",
+    "Memanggil",
+    "Membuat",
+    "Menggunakan",
+    "Mengirim",
+    "menit",
+    "menjadi",
+    "Pengguna",
+    "Penyimpanan",
+    "Quokka",
+    "Simpan"
+  ],
+  "redhat.telemetry.enabled": false,
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "github.copilot.enable": {
+    "*": true,
+    "yaml": true,
+    "plaintext": true,
+    "markdown": false,
+    "javascript": true
+  },
+  "peacock.favoriteColors": [
+    {
+      "name": "Angular Red",
+      "value": "#dd0531"
+    },
+    {
+      "name": "Azure Blue",
+      "value": "#007fff"
+    },
+    {
+      "name": "JavaScript Yellow",
+      "value": "#f9e64f"
+    },
+    {
+      "name": "Mandalorian Blue",
+      "value": "#1857a4"
+    },
+    {
+      "name": "Node Green",
+      "value": "#215732"
+    },
+    {
+      "name": "React Blue",
+      "value": "#61dafb"
+    },
+    {
+      "name": "Something Different",
+      "value": "#832561"
+    },
+    {
+      "name": "Svelte Orange",
+      "value": "#ff3d00"
+    },
+    {
+      "name": "Vue Green",
+      "value": "#42b883"
+    }
+  ],
+  "workbench.colorTheme": "Night Wolf [black]",
+  "files.eol": "\n",
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "synthwave84.brightness": 0,
+  "vim.easymotion": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.hlsearch": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": [
+        "j",
+        "j"
+      ],
+      "after": [
+        "<Esc>"
+      ]
+    }
+  ],
+  "vim.leader": "<space>",
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false
+  },
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        ":"
+      ],
+      "commands": [
+        "workbench.action.showCommands"
+      ]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        ">"
+      ],
+      "commands": [
+        "editor.action.indentLines"
+      ]
+    },
+    {
+      "before": [
+        "<"
+      ],
+      "commands": [
+        "editor.action.outdentLines"
+      ]
+    },
+    {
+      "before": [
+        "p"
+      ],
+      "after": [
+        "p",
+        "g",
+        "v",
+        "y"
+      ]
+    }
+  ],
+  "thunder-client.codeSnippetLanguage": "js-axios",
+  "workbench.editor.enablePreview": false,
+  "markdown-preview-enhanced.previewTheme": "github-dark.css",
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "vim.statusBarColorControl": false,
+  "vim.statusBarColors.normal": [
+    "#8FBCBB",
+    "#000"
+  ],
+  "vim.statusBarColors.insert": [
+    "#BF616A",
+    "#000"
+  ],
+  "vim.statusBarColors.visual": [
+    "#B48EAD",
+    "#000"
+  ],
+  "vim.statusBarColors.visualline": [
+    "#B48EAD",
+    "#000"
+  ],
+  "vim.statusBarColors.visualblock": [
+    "#A3BE8C",
+    "#000"
+  ],
+  "vim.statusBarColors.replace": "#D08770",
+  "vim.statusBarColors.commandlineinprogress": "#007ACC",
+  "vim.statusBarColors.searchinprogressmode": "#007ACC",
+  "vim.statusBarColors.easymotionmode": "#007ACC",
+  "vim.statusBarColors.easymotioninputmode": "#007ACC",
+  "vim.statusBarColors.surroundinputmode": "#007ACC",
+  "workbench.colorCustomizations": {
+    "statusBar.noFolderBackground": "#8FBCBB"
+  },
+  "vim.cursorStylePerMode.insert": "line",
+  "vim.cursorStylePerMode.normal": "line",
+  "vim.cursorStylePerMode.replace": "line",
+  "vim.cursorStylePerMode.visual": "line",
+  "vim.cursorStylePerMode.visualblock": "line",
+  "vim.cursorStylePerMode.visualline": "line",
+  "security.workspace.trust.untrustedFiles": "open",
+}
