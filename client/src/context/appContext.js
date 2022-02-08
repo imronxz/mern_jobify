@@ -123,7 +123,11 @@ const AppProvider = ({ children }) => {
       dispatch({ type: UPDATE_SUCCESS, payload: { user, location, token } })
       addUserToLocalStorage( { user, location, token })
     } catch (error) {
-      dispatch({ type: UPDATE_FAILED, payload: { msg: error.response.data.msg } })
+      if (error.response.status !== 401)
+        dispatch({
+          type: UPDATE_FAILED,
+          payload: { msg: error.response.data.msg }
+        })
     }
     clearAlert();
   };
