@@ -1,4 +1,4 @@
-#### Context State Management for hadnle job input
+#### Context State Management for handle job input
 - actions.js
 ```js
 export const HANDLE_CHANGE = 'HANDLE_CHANGE';
