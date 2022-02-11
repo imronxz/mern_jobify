@@ -1,5 +1,5 @@
 #### Context State Management for hadnle job input
--actions.js
+- actions.js
 ```js
 export const HANDLE_CHANGE = 'HANDLE_CHANGE';
 ```
@@ -14,7 +14,7 @@ case HANDLE_CHANGE:
         [action.payload.name]: action.payload.value
       }
 ```
--appContext.js
+- appContext.js
 ```js
 
 // * Handle Change
