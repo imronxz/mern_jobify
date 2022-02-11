@@ -108,7 +108,7 @@ const updateUser = async (req, res) => {
   user.lastName = lastName;
   user.location = location;
   
-  await user.save();
+  // await user.save();
   // const token = user.createJWT()
 
   const token = jwt.sign({ email: user.email, id: user._id }, process.env.JWT_SECRET, {
