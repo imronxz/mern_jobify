@@ -4,7 +4,7 @@
 jobsController.js
 
 /**
- * getAllJob - Get ALl Job
+ * getAllJob - Get All Job
  * @job : await Job.find(createdBy: req.user.id)
  * @response : status(StatusCodes.Ok).json({ jobs, totalJobs: jobs.legthm numOfPages: 1})
  */
