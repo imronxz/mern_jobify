@@ -1,25 +1,6 @@
-import Job from '../models/Job.js';
-import { StatusCodes } from 'http-status-codes';
-import { BadRequestError, NotFoundError } from '../errors/index.js';
-import checkPermissions from '../utils/checkPermissions.js';
-
-/**
- * createJob - Create Job
- * @body : {position, company}
- * @createdBy : {userId}
- * @job : await Job.create(req.body)
- */
-const createJob = async (req, res) => {
-  const { position, company } = req.body;
-
-  if (!position || !company) {
-    throw new BadRequestError('Harap pilih posisi dan perusahaan');
-  }
-
-  req.body.createdBy = req.user.id;
-  const job = await Job.create(req.body);
-  res.status(StatusCodes.CREATED).json({ job });
-};
+# Check Permission for updating by user.id
+```js
+jobsControllers.js
 
 /**
  * getAllJob - Get ALl Job
@@ -62,13 +43,17 @@ const updateJob = async (req, res) => {
   });
   res.status(StatusCodes.OK).json({ updateJob})
 };
+```
+#### utils/checkPermission.js
+```js
+checkPermission.js
 
-const deleteJob = async (req, res) => {
-  res.send('deleteJob ');
+import { UnAuthenticatedError } from '../errors/index.js';
+
+const checkPermissions = (requestUser, resourceUserId) => {
+  if (requestUser.id === resourceUserId.toString()) return
+  throw new UnAuthenticatedError('You do not have permission to do that')
 };
 
-const showStats = async (req, res) => {
-  res.send('show Stats ');
-};
-
-export { createJob, deleteJob, getAllJobs, updateJob, showStats };
+export default checkPermissions;
+```
