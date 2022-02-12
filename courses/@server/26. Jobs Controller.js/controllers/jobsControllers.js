@@ -31,7 +31,6 @@ const getAllJobs = async (req, res) => {
 };
 /**
  * updateJob - Update Job
- * @params : {id: jobId}
  * @body : {position, company}
  * @job : await Job.findOne({ _id: jobId})
  * @updateJob : await Job.findByIdAndUpdate({ _id: jobId}, req.body, { new: true,runValidators: true,)
