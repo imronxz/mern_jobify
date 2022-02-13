@@ -98,6 +98,3 @@ function StatItem({ count, title, icon, color, bcg }) {
 
 export default StatItem
 ```
-```js
-
-```
