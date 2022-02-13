@@ -5,19 +5,20 @@ import Wrapper from '../assets/wrappers/StatsContainer';
 
 const StatsContainer = () => {
   const { stats } = useAppContext();
+
   const defaultStats = [
     {
       title: 'pending applications',
       count: stats.pending || 0,
       icon: <FaSuitcaseRolling />,
-      color: '#E9B949',
+      color: '#e9b949',
       bcg: '#fcefc7',
     },
     {
-      title: 'inteviews scheduled',
+      title: 'interviews scheduled',
       count: stats.interview || 0,
       icon: <FaCalendarCheck />,
-      color: '#6471cb',
+      color: '#647acb',
       bcg: '#e0e8f9',
     },
     {
@@ -31,9 +32,9 @@ const StatsContainer = () => {
 
   return (
     <Wrapper>
-      {defaultStats.map((item, index) => (
-        <StatsItem key={index} {...item} />
-      ))}
+      {defaultStats.map((item, index) => {
+        return <StatsItem key={index} {...item} />;
+      })}
     </Wrapper>
   );
 };
