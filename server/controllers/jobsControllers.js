@@ -52,6 +52,7 @@ const getAllJobs = async (req, res) => {
   if (sort === 'z-a') result = result.sort('-position')
 
   // Pagination
+  console.log(req.query.limit);
   const page = Number(req.query.page) || 1;
   const limit = Number(req.query.limit) || 10;
   const startIndex = (page - 1) * limit //10
