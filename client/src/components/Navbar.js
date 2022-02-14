@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Wrapper from '../assets/wrappers/Navbar';
 import { FaAlignLeft, FaUserCircle, FaCaretDown } from 'react-icons/fa';
 import { useAppContext } from '../context/appContext';
+import { Link } from 'react-router-dom';
 import Logo from './Logo';
 
 const Navbar = () => {
@@ -16,7 +17,9 @@ const Navbar = () => {
           <FaAlignLeft />
         </button>
         <div>
-          <Logo />
+          <Link to='/'>
+            <Logo />
+          </Link>
           <h3 className="logo-text">dashboard</h3>
         </div>
         {/* User Sections */}
